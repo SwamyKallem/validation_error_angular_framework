@@ -1,0 +1,36 @@
+<form class="example-form" (ngSubmit)="onSubmit()"
+ [formGroup]="userAddressValidations">
+	<mat-form-field class="example-full-width">
+		<input matInput placeholder="First Name" formControlName="firstName" appFormValidationMsg [validationMsgId]="'firstName'">
+		
+	</mat-form-field>
+
+	<mat-form-field class="example-full-width">
+		<mat-label>Last Name</mat-label>
+		<input matInput formControlName="lastName" appFormValidationMsg>		
+	</mat-form-field>
+
+	<mat-form-field class="example-full-width">
+		<mat-label>Location</mat-label>
+		<input matInput formControlName="location">
+		<mat-error *ngIf="userAddressValidations.get('location').hasError('required')">
+			<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Please fill out this field.
+		</mat-error>
+		<mat-error *ngIf="userAddressValidations.get('location').hasError('minlength')">
+			Minimum 4 characters required.
+		</mat-error>
+		<mat-error  *ngIf="userAddressValidations.get('location').hasError('maxlength')">
+		Accepts only 20 characters.
+		</mat-error>
+	</mat-form-field>
+
+	<button  mat-raised-button appFormSubmitValidationMsg
+  [validationControl]="userAddressValidations" >
+      <span>Save</span>
+  </button>
+</form>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
