@@ -11,6 +11,11 @@
 	</mat-form-field>
 
 	<mat-form-field class="example-full-width">
+		<mat-label>Blur Flag</mat-label>
+		<input matInput formControlName="middleName" appFormValidationMsg [blurFlag]="true">		
+	</mat-form-field>
+
+	<mat-form-field class="example-full-width">
 		<mat-label>Location</mat-label>
 		<input matInput formControlName="location">
 		<mat-error *ngIf="userAddressValidations.get('location').hasError('required')">

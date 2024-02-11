@@ -15,6 +15,7 @@ ngOnInit() {
   this.userAddressValidations = this.formBuilder.group({
     firstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
     lastName: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(20)]],
+    middleName: ['', [ Validators.minLength(4)]],
      location: ['', [Validators.required, Validators.minLength(4),Validators.maxLength(20)]]
   });
 
